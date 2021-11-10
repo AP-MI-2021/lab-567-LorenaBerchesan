@@ -1,0 +1,1 @@
+[{"id":2, "nume": "Wizz Air", "clasa":"economy", "pret":100, "checkin":"da"}]
