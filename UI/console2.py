@@ -1,6 +1,6 @@
 from Domain.rezervare import to_string,creeaza_rezervare
 from Logic.crud import add_rezervare, delete_rezervare
-from Logic.operatiuni import ordonare_descrescator
+from Logic.operatiuni import ordonare_descrescator, ordonare_pret, get_rezervari_pret_max_per_clasa
 
 def print_meniu():
     print('Citeste stringul cu operatiuni separate prin virgula')
@@ -8,6 +8,8 @@ def print_meniu():
     print('Stergere,<id> - este pentru stergere')
     print('Showall - pentru afisare')
     print('Ordonare - ordonare descarescator dupa pret')
+    print('OrdonarePret - pret')
+    print('Rezervare - rezervare pret maxim per clasa')
 
 
 def run_console_2(lista_rezervari):
@@ -50,6 +52,12 @@ def run_console_2(lista_rezervari):
                 handle_show_all(lista_rezervari)
             elif comanda[0] == 'Ordonare':
                 for rezervare in ordonare_descrescator(lista_rezervari):
+                    print(to_string(rezervare))
+            elif comanda[0] == 'OdonarePret':
+                for rezervare in ordonare_pret(lista_rezervari):
+                    print(to_string(rezervare))
+            elif comanda[0] =='Rezervare':
+                for rezervare in get_rezervari_pret_max_per_clasa(lista_rezervari):
                     print(to_string(rezervare))
             elif comanda[0] == 'Back':
                 break
